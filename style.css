@@ -1,0 +1,20 @@
+:root{--bg:#f4f7fb;--ink:#14213d;--card:#fff;--accent:#0b6e4f;--line:#d5dce8}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1524;--ink:#e8edf7;--card:#16213a;--accent:#5fd3a5;--line:#2a3a5c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:40rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+h1{font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.15;margin:.5rem 0 .75rem}
+h2{font-size:1.3rem;margin:2rem 0 .5rem}
+a{color:var(--accent)}
+.crumb{font-size:.9rem}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.25rem}
+label{display:block;font-weight:600;margin:.8rem 0 .25rem}
+input,textarea{width:100%;font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+textarea{min-height:5rem}
+button{font:inherit;font-weight:600;padding:.65rem 1rem;border:0;border-radius:6px;background:var(--accent);color:var(--bg);cursor:pointer;margin:.6rem .5rem 0 0}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#out{word-break:break-all;margin-top:1rem;padding:.7rem;border:1px dashed var(--line);border-radius:6px;min-height:2.6rem}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid var(--line);padding:.4rem .6rem;text-align:left}
+details{border-bottom:1px solid var(--line);padding:.6rem 0}
+summary{cursor:pointer;font-weight:600}
