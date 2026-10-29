@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veddevavi.github.io/whatsapp-link-generator/sitemap.xml
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhatsApp Link Generator: Create wa.me Link with Message</title>
+<meta name="description" content="Free WhatsApp link generator. Enter a number and message to create a wa.me click-to-chat link. Works in your browser, nothing is stored.">
+<link rel="canonical" href="https://veddevavi.github.io/whatsapp-link-generator/">
+<meta property="og:title" content="WhatsApp Link Generator: Create wa.me Link with Message">
+<meta property="og:description" content="Create a click-to-chat WhatsApp link with a ready message in seconds.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://veddevavi.github.io/whatsapp-link-generator/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"WhatsApp Link Generator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"url":"https://YOUR-USERNAME.github.io/whatsapp-link-generator/"},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I create a WhatsApp link with a message?","acceptedAnswer":{"@type":"Answer","text":"Enter the phone number with country code, type your message, and the tool builds a wa.me link you can copy."}},
+{"@type":"Question","name":"Do I need to add a plus sign or zeros before the number?","acceptedAnswer":{"@type":"Answer","text":"No. Use the country code followed by the number, for example 919876543210. Do not add plus signs, spaces or leading zeros."}},
+{"@type":"Question","name":"Is this WhatsApp link generator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free and runs fully in your browser. Your number and message are not sent to any server."}}]}
+]}
+</script>
+<style>
+:root{--bg:#f4f7fb;--ink:#14213d;--card:#fff;--accent:#0b6e4f;--line:#d5dce8}
+@media (prefers-color-scheme:dark){:root{--bg:#0e1524;--ink:#e8edf7;--card:#16213a;--accent:#5fd3a5;--line:#2a3a5c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:40rem;margin:0 auto;padding:1.5rem 1.25rem 3rem}
+h1{font-size:clamp(1.8rem,6vw,2.5rem);line-height:1.15;margin:.5rem 0 .75rem}
+h2{font-size:1.3rem;margin:2rem 0 .5rem}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1.25rem}
+label{display:block;font-weight:600;margin:.8rem 0 .25rem}
+input,textarea{width:100%;font:inherit;padding:.6rem .7rem;border:1px solid var(--line);border-radius:6px;background:transparent;color:inherit}
+textarea{min-height:5rem}
+button{font:inherit;font-weight:600;padding:.65rem 1rem;border:0;border-radius:6px;background:var(--accent);color:var(--bg);cursor:pointer;margin:.6rem .5rem 0 0}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+#out{word-break:break-all;margin-top:1rem;padding:.7rem;border:1px dashed var(--line);border-radius:6px;min-height:2.6rem}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid var(--line);padding:.4rem .6rem;text-align:left}
+details{border-bottom:1px solid var(--line);padding:.6rem 0}
+summary{cursor:pointer;font-weight:600}
+</style>
+</head>
+<body>
+<main>
+<h1>WhatsApp Link Generator</h1>
+<p>Create a <strong>WhatsApp link</strong> that opens a chat with your number and a ready-made message. Free, and it runs in your browser.</p>
+
+<section class="tool" aria-label="WhatsApp link generator">
+<label for="num">Phone number with country code</label>
+<input id="num" inputmode="numeric" placeholder="919876543210">
+<label for="msg">Message (optional)</label>
+<textarea id="msg" placeholder="Hi, I saw your website and want to know more."></textarea>
+<button id="gen" type="button">Generate link</button>
+<button id="copy" type="button">Copy link</button>
+<button id="test" type="button">Test link</button>
+<div id="out" aria-live="polite">Your link will appear here.</div>
+</section>
+
+<h2>How to create a WhatsApp link</h2>
+<p>A WhatsApp click-to-chat link has this format: <code>https://wa.me/NUMBER?text=MESSAGE</code>. The number must include the country code and no plus sign, spaces or dashes. The message must be URL-encoded, and this tool does that for you.</p>
+
+<h2>Examples</h2>
+<table>
+<tr><th>Country</th><th>Local number</th><th>Use in link</th></tr>
+<tr><td>India</td><td>98765 43210</td><td>919876543210</td></tr>
+<tr><td>USA</td><td>(415) 555-0132</td><td>14155550132</td></tr>
+<tr><td>UK</td><td>07911 123456</td><td>447911123456</td></tr>
+</table>
+
+<h2>Frequently asked questions</h2>
+<details><summary>How do I create a WhatsApp link with a message?</summary><p>Enter the number with country code, type your message, and the tool builds a wa.me link you can copy.</p></details>
+<details><summary>Do I need to add a plus sign or zeros before the number?</summary><p>No. Use the country code followed by the number, for example 919876543210.</p></details>
+<details><summary>Is this WhatsApp link generator free?</summary><p>Yes. It runs in your browser, and your number and message are not sent to any server.</p></details>
+</main>
+<script>
+(function(){
+var num=document.getElementById('num'),msg=document.getElementById('msg'),out=document.getElementById('out'),link='';
+function build(){
+  var n=num.value.replace(/\D/g,'').replace(/^0+/,'');
+  if(n.length<8){out.textContent='Enter a valid number with country code, for example 919876543210.';link='';return;}
+  link='https://wa.me/'+n+(msg.value.trim()?'?text='+encodeURIComponent(msg.value.trim()):'');
+  out.textContent=link;
+}
+document.getElementById('gen').onclick=build;
+document.getElementById('copy').onclick=function(){
+  build(); if(!link)return;
+  if(navigator.clipboard){navigator.clipboard.writeText(link).then(function(){out.textContent='Copied: '+link;});}
+};
+document.getElementById('test').onclick=function(){build(); if(link)window.open(link,'_blank','noopener');};
+})();
+</script>
+</body>
+</html>
